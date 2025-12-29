@@ -1,21 +1,19 @@
 import React, { useState } from "react";
+import Add from "./components/Add";
+import Subs from "./components/Subs";
 
 const App = () => {
-  console.log("app rendering....");
-  let [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
   return (
-    <div>
-      <h1>Hello</h1>
-      <h2>Count is - {count}</h2>
-      <button
-        onClick={() => {
-          setCount(++count);
-        }}
-      >
-        Increment
-      </button>
-      <button>Decrement</button>
+    <div className="h-screen flex flex-col gap-10 justify-center items-center">
+      <h1>
+        Count hai mere pass - <span className="text-3xl">{count}</span>
+      </h1>
+      <div className="flex gap-10">
+        <Add add={setCount} />
+        <Subs sub={setCount} />
+      </div>
     </div>
   );
 };

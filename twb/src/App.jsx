@@ -7,7 +7,7 @@ const App = () => {
     name: "",
     email: "",
     mobile: "",
-  });
+  }); 
 
   const [cards, setCards] = useState([]);
 

@@ -9,8 +9,6 @@ const App = () => {
     formState: { errors },
   } = useForm();
 
-  console.log(errors);
-
   let handleFormData = (data) => {
     console.log(data);
     reset();

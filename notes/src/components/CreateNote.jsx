@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const CreateNote = ({ setNotesData }) => {
+const CreateNote = ({ setNotesData, setCreateModal }) => {
   const [formData, setFormData] = useState({
     noteName: "",
     description: "",
@@ -22,6 +22,7 @@ const CreateNote = ({ setNotesData }) => {
       noteName: "",
       description: "",
     });
+    setCreateModal(false);
   };
 
   return (

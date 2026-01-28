@@ -3,9 +3,8 @@ import { createContext, useState } from "react";
 export let MyStore = createContext();
 
 export let ContextProvider = ({ children }) => {
-  const [cdata, setCdata] = useState("pop");
-
+  const [naam, setNaam] = useState("polo");
   return (
-    <MyStore.Provider value={{ cdata, setCdata }}>{children}</MyStore.Provider>
+    <MyStore.Provider value={{ naam, setNaam }}>{children}</MyStore.Provider>
   );
 };

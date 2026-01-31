@@ -4,9 +4,11 @@ import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
-    <div>
+    <div className="w-full">
       <Navbar />
-      <AppRouter />
+      <div className="p-4">
+        <AppRouter />
+      </div>
     </div>
   );
 };

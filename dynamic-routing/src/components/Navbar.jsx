@@ -20,17 +20,17 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive ? "text-red-500" : "text-white"
           }
-          to="/about"
+          to="/cart"
         >
-          About
+          Cart
         </NavLink>
         <NavLink
           className={({ isActive }) =>
             isActive ? "text-red-500" : "text-white"
           }
-          to="/products/400"
+          to="/contact"
         >
-          Products
+          Contact
         </NavLink>
       </div>
     </div>

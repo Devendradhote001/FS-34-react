@@ -1,10 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router";
 import { MyStore } from "../MyContext";
 
 const ProductCard = ({ elem = {} }) => {
   let navigate = useNavigate();
-  const [isCart, setIsCart] = useState(false);
 
   let { setCartItems, products, cartItems } = useContext(MyStore);
 
@@ -20,11 +19,13 @@ const ProductCard = ({ elem = {} }) => {
   };
 
   const handleQuantityDec = () => {
-    if (checkPRoductInCart.quantity === 0) {
-      setIsCart(false);
-      return;
-    }
     checkPRoductInCart.quantity--;
+    if (checkPRoductInCart.quantity === 0) {
+      let newArr = cartItems.filter(
+        (elem) => elem.id !== checkPRoductInCart.id
+      );
+      setCartItems(newArr);
+    }
     setCartItems((prev) => [...prev]);
   };
 
@@ -40,7 +41,7 @@ const ProductCard = ({ elem = {} }) => {
         <h4>{elem?.productName}</h4>
         <p>{elem?.description}</p>
         <p className="mb-5">{elem?.price}</p>
-        {!checkPRoductInCart || isCart ? (
+        {!checkPRoductInCart ? (
           <button
             onClick={handleAddToCart}
             className="w-full py-2 rounded-xl bg-blue-800 text-white cursor-pointer"

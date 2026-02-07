@@ -1,33 +1,39 @@
 import React from "react";
-import { RouterProvider } from "react-router/dom";
-import { createBrowserRouter, NavLink, Link } from "react-router";
-import Contact from "../screens/Contact";
+import { createBrowserRouter, RouterProvider } from "react-router";
 import Home from "../screens/Home";
-import Cart from "../screens/Cart";
+import About from "../screens/About";
+import Contact from "../screens/Contact";
+import MainLayout from "../layout/MainLayout";
+import AuthLayout from "../layout/AuthLayout";
 
 const AppRouter = () => {
   let router = createBrowserRouter([
     {
       path: "/",
-      element: <Home />,
+      element: <AuthLayout />,
+    },
+
+    {
+      path: "/home",
+      element: <MainLayout />,
       children: [
+        {
+          path: "",
+          element: <Home />,
+        },
+        {
+          path: "about/:id",
+          element: <About />,
+        },
         {
           path: "contact",
           element: <Contact />,
-        },
-        {
-          index: true,
-          element: <Cart />,
         },
       ],
     },
   ]);
 
-  return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default AppRouter;

@@ -1,16 +1,11 @@
-import React from "react";
-import { createBrowserRouter, NavLink, Outlet } from "react-router";
+import React from 'react'
 
 const Home = () => {
   return (
     <div>
-      <nav>
-        <NavLink to="/contact">Contact</NavLink>
-        <NavLink to="/cart">cart</NavLink>
-      </nav>
-      <Outlet />
+      <h1>Home</h1>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

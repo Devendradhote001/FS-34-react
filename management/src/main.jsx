@@ -4,9 +4,11 @@ import "./index.css";
 import App from "./App.jsx";
 import AppRouter from "./router/AppRouter.jsx";
 import { ContextProvider } from "./MyContext.jsx";
+import { ToastContainer } from "react-toastify";
 
 createRoot(document.getElementById("root")).render(
   <ContextProvider>
     <AppRouter />
+    <ToastContainer />
   </ContextProvider>
 );

@@ -1,16 +1,37 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { MyStore } from "../MyContext";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 const Login = ({ setToggle }) => {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  let { registeredUsers } = useContext(MyStore);
+
   const onSubmit = (data) => {
-    console.log("Login data:", data);
-    // handle login here (e.g., call API)
+    let user = registeredUsers.find((elem) => elem.email === data.email);
+
+    if (!user) {
+      toast.error("User not found");
+      return;
+    }
+
+    if (user.password !== data.password) {
+      toast.error("Incorrect email or password");
+      return;
+    }
+
+    toast.success("user logged in");
+    localStorage.setItem('log user', JSON.stringify(user))
+    navigate("/main");
+    return;
   };
 
   return (

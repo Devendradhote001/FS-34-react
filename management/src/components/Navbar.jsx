@@ -1,7 +1,10 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { NavLink, useLocation, useNavigate } from "react-router";
 
 const Navbar = () => {
+  let navigate = useNavigate();
+  let { pathname } = useLocation();
+
   return (
     <div className="flex flex-col gap-5">
       <div className="flex gap-4 items-center mb-5">
@@ -16,16 +19,46 @@ const Navbar = () => {
       </div>
 
       <div className="flex flex-col gap-5 pl-8">
-        <NavLink className="px-4 py-2 bg-gray-300 rounded" to="/main">
+        <NavLink
+          className={({ isActive }) =>
+            isActive && pathname === "/main"
+              ? "px-4 py-2 bg-black rounded text-white"
+              : "px-4 py-2 bg-gray-300 rounded"
+          }
+          to="/main"
+        >
           Home
         </NavLink>
-        <NavLink className="px-4 py-2 bg-gray-300 rounded" to="/main/users">
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "px-4 py-2 bg-black rounded text-white"
+              : "px-4 py-2 bg-gray-300 rounded"
+          }
+          to="/main/users"
+        >
           Users
         </NavLink>
-        <NavLink className="px-4 py-2 bg-gray-300 rounded" to="/main/cart">
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "px-4 py-2 bg-black rounded text-white"
+              : "px-4 py-2 bg-gray-300 rounded"
+          }
+          to="/main/cart"
+        >
           Cart
         </NavLink>
-        <NavLink className="px-4 py-2 bg-gray-300 rounded">Logout</NavLink>
+        <NavLink
+          onClick={() => {
+            localStorage.removeItem("log user");
+
+            return navigate("/");
+          }}
+          className="px-4 py-2 bg-gray-300 rounded"
+        >
+          Logout
+        </NavLink>
       </div>
     </div>
   );

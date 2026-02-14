@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { set, useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import { MyStore } from "../MyContext";
 
 const Register = ({ setToggle }) => {
   const {
@@ -8,9 +10,14 @@ const Register = ({ setToggle }) => {
     formState: { errors },
   } = useForm();
 
+  let { registeredUsers, setRegisteredUsers } = useContext(MyStore);
+
   const onSubmit = (data) => {
-    console.log("Register data:", data);
-    // handle registration here (e.g., call API)
+    let arr = [...registeredUsers, data];
+    setRegisteredUsers(arr);
+    localStorage.setItem("reg user", JSON.stringify(arr));
+    toast.success("user registered");
+    setToggle((prev) => !prev);
   };
 
   return (

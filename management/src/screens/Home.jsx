@@ -1,15 +1,19 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
+import { MyStore } from "../MyContext";
+import { axiosInstance } from "../config/axiosInstance";
 
 const Home = () => {
+  let { isLoading, setIsLoading } = useContext(MyStore);
+
   const [products, setProducts] = useState([]);
   console.log(products);
 
   let getProductsFromApi = async () => {
     try {
-      let res = await axios.get("https://fakestoreapi.com/products");
+      let res = await axiosInstance.get("/products");
       if (res) {
+        setIsLoading(false);
         setProducts(res.data);
       }
     } catch (error) {
@@ -19,7 +23,15 @@ const Home = () => {
 
   useEffect(() => {
     getProductsFromApi();
+
+    return () => {
+      setIsLoading(true);
+    };
   }, []);
+
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <div className="flex flex-wrap gap-6 h-screen overflow-auto ">

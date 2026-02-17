@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 
 const Home = ({ count, greet }) => {
-    console.log("home rendering...");
-  console.log(greet());
+  console.log("home rendering...");
   return (
     <div>
       <h1>Home</h1>

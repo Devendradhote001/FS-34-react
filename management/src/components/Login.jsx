@@ -29,7 +29,7 @@ const Login = ({ setToggle }) => {
     }
 
     toast.success("user logged in");
-    localStorage.setItem('log user', JSON.stringify(user))
+    localStorage.setItem("log user", JSON.stringify(user));
     navigate("/main");
     return;
   };

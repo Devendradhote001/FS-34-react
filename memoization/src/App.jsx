@@ -1,7 +1,6 @@
 import React, { use, useCallback, useMemo, useRef, useState } from "react";
 
 const App = () => {
-  let inpRef = useRef();
   console.log(inpRef);
 
   return (

@@ -3,6 +3,7 @@ import React from "react";
 import MusicCard from "./components/MusicCard";
 
 const App = () => {
+  
   let songsData = [
     {
       name: "Jana Samjho na",

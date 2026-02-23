@@ -10,10 +10,13 @@ let counterSlice = createSlice({
       state.count++;
     },
     decrement: (state) => {
+      if (state.count === 0) return;
+
       state.count--;
     },
   },
 });
 
-let { increment, decrement } = counterSlice.actions;
+export let { increment, decrement } = counterSlice.actions;
+
 export default counterSlice.reducer;

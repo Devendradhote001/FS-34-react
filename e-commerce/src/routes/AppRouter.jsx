@@ -1,7 +1,11 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router";
-import Home from "../screens/Home";
 import MainLayout from "../layouts/MainLayout";
+import Mens from "../screens/Mens";
+import Beauty from "../screens/Beauty";
+import Kids from "../screens/Kids";
+import Womens from "../screens/Womens";
+import CartScreen from "../screens/CartScreen";
 
 const AppRouter = () => {
   let router = createBrowserRouter([
@@ -11,7 +15,23 @@ const AppRouter = () => {
       children: [
         {
           path: "",
-          element: <Home />,
+          element: <Mens />,
+        },
+        {
+          path: "womens",
+          element: <Womens />,
+        },
+        {
+          path: "kids",
+          element: <Kids />,
+        },
+        {
+          path: "beauty",
+          element: <Beauty />,
+        },
+        {
+          path: "cart",
+          element: <CartScreen />,
         },
       ],
     },

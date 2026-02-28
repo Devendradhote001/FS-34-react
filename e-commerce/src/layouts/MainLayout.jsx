@@ -8,7 +8,7 @@ const MainLayout = () => {
       <nav className="h-[10%]">
         <Navbar />
       </nav>
-      <div>
+      <div className="px-10 h-[100vh] py-4 bg-gray-100">
         <Outlet />
       </div>
     </div>

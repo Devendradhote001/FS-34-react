@@ -6,6 +6,7 @@ import Beauty from "../screens/Beauty";
 import Kids from "../screens/Kids";
 import Womens from "../screens/Womens";
 import CartScreen from "../screens/CartScreen";
+import ProductDetails from "../screens/ProductDetails";
 
 const AppRouter = () => {
   let router = createBrowserRouter([
@@ -32,6 +33,11 @@ const AppRouter = () => {
         {
           path: "cart",
           element: <CartScreen />,
+        },
+
+        {
+          path: "product/:id",
+          element: <ProductDetails />,
         },
       ],
     },

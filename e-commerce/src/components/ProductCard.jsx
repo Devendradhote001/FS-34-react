@@ -1,9 +1,16 @@
 import React from "react";
+import { useLocation, useNavigate } from "react-router";
 
 const ProductCard = ({ elem, getClickedCard }) => {
+  const navigate = useNavigate();
+  let { pathname } = useLocation();
+
   return (
     <div className="p-4 rounded-xl items-center bg-white shadow-md flex flex-col gap-4">
-      <div className="h-[250px] ">
+      <div
+        onClick={() => navigate(`product/${elem.id}`)}
+        className="h-[250px] "
+      >
         <img
           className="h-full object-center rounded-xl"
           src={elem.image}
@@ -24,12 +31,15 @@ const ProductCard = ({ elem, getClickedCard }) => {
         <button className="py-3 rounded-xl cursor-pointer px-4 bg-red-700 text-white">
           Remove
         </button>
-        <button
-          onClick={() => getClickedCard(elem.id)}
-          className="py-3 rounded-xl cursor-pointer px-4 bg-green-700 text-white"
-        >
-          Add to Cart
-        </button>
+
+        {pathname === "/cart" ? null : (
+          <button
+            onClick={() => getClickedCard(elem.id)}
+            className="py-3 rounded-xl cursor-pointer px-4 bg-green-700 text-white"
+          >
+            Add to Cart
+          </button>
+        )}
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router";
+import { useAddToCart } from "../hooks/useProductsHooks";
 
 const ProductCard = ({ elem, getClickedCard }) => {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ const ProductCard = ({ elem, getClickedCard }) => {
 
         {pathname === "/cart" ? null : (
           <button
-            onClick={() => getClickedCard(elem.id)}
+            onClick={() => useAddToCart(elem.id)}
             className="py-3 rounded-xl cursor-pointer px-4 bg-green-700 text-white"
           >
             Add to Cart

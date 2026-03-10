@@ -4,10 +4,8 @@ import { useSongs } from "../hooks/getSongs";
 import SongsList from "../components/SongsList";
 
 const GenreDetail = () => {
-  let songs = useSongs();
-  console.log(songs);
   let { id } = useParams();
-  console.log("id", id);
+  let songs = useSongs();
 
   return (
     <div className="flex flex-col gap-4">

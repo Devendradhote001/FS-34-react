@@ -21,3 +21,10 @@ const MainLayout = () => {
 };
 
 export default MainLayout;
+
+
+
+// 1. Api
+// 2. Hooks
+// 3. State
+// 4. ui(components)

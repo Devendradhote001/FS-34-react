@@ -1,13 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
+import { useHome } from "../../hooks/useHome";
 
 const SongCard = ({ elem, index }) => {
-  let audioRef = useRef();
+  let {  addSong } = useHome();
 
   return (
-    <div
-      onClick={() => audioRef.current.play()}
-      className="flex gap-4 cursor-pointer"
-    >
+    <div onClick={() => addSong(elem)} className="flex gap-4 cursor-pointer">
       <p>{index}</p>
       <div className="flex gap-4">
         <div>
@@ -17,7 +15,6 @@ const SongCard = ({ elem, index }) => {
           <h1>{elem.title}</h1>
           <p>Artist</p>
         </div>
-        <audio ref={audioRef} src={elem.url}></audio>
       </div>
     </div>
   );

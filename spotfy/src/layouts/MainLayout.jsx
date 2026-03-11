@@ -1,6 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router";
 import Navbar from "../shared/components/Navbar";
+import Player from "../features/player/component/Player";
 
 const MainLayout = () => {
   return (
@@ -15,14 +16,14 @@ const MainLayout = () => {
         </div>
         <div className="bg-gray-500 rounded-xl">videoPlayer</div>
       </div>
-      <div className="h-[11%] bg-indigo-400">Player</div>
+      <div className="h-[11%] bg-black text-white">
+        <Player />
+      </div>
     </div>
   );
 };
 
 export default MainLayout;
-
-
 
 // 1. Api
 // 2. Hooks

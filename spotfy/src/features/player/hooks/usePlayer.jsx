@@ -3,13 +3,19 @@ import { useSelector } from "react-redux";
 
 export const usePlayer = () => {
   let { currentSong, isPlaying } = useSelector((store) => store.player);
-  let audio = new Audio(currentSong?.url);
 
   useEffect(() => {
+    let audio = new Audio();
+
     if (currentSong) {
+      audio.src = currentSong.url;
       audio.play();
       console.log(currentSong);
     }
+
+    return () => {
+      audio.src = null;
+    };
   }, [currentSong]);
 
   return currentSong || "hello";

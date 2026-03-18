@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router";
-import { useSongs } from "../hooks/getSongs";
 import SongsList from "../components/SongsList";
+import { useSongs } from "../../../shared/hooks/getSongs";
 
 const GenreDetail = () => {
   let { id } = useParams();

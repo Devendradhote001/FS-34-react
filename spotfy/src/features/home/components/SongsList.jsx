@@ -1,7 +1,8 @@
 import React from "react";
 import Table from "./songslist/Table";
 import SongCard from "./songslist/SongCard";
-import { useSongs } from "../hooks/getSongs";
+import { useSongs } from "../../../shared/hooks/getSongs";
+
 
 const SongsList = () => {
   let songs = useSongs();

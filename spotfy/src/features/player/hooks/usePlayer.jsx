@@ -1,22 +1,30 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { pause } from "../state/playerSlice";
 
 export const usePlayer = () => {
+  const dispatch = useDispatch();
   let { currentSong, isPlaying } = useSelector((store) => store.player);
+  console.log("play->", isPlaying);
 
+  let audio = new Audio();
   useEffect(() => {
-    let audio = new Audio();
-
-    if (currentSong) {
+    if (currentSong && isPlaying) {
       audio.src = currentSong.url;
       audio.play();
-      console.log(currentSong);
+    } else {
+      audio.pause();
     }
 
     return () => {
       audio.src = null;
     };
-  }, [currentSong]);
+  }, [currentSong, isPlaying]);
 
-  return currentSong || "hello";
+  let handlePlayPause = () => {
+    console.log("reached");
+    dispatch(pause());
+  };
+
+  return { currentSong, handlePlayPause };
 };

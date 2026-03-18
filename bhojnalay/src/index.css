@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: gilroy;
+  src: url("https://media-assets.swiggy.com/dls-web-assets/dls/fonts/Gilroy-SemiBold.woff2");
+}

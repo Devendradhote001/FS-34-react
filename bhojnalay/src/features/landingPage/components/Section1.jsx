@@ -1,8 +1,11 @@
 import React from "react";
 import Navbar from "./subComp/Navbar";
 import { ChevronDown, MapPin, Search } from "lucide-react";
+import { useLandingPage } from "../hooks/useLandingPage";
 
 const Section1 = () => {
+  let { navigate } = useLandingPage();
+
   return (
     <div className="h-full bg-[#ff5201] relative ">
       <div className="h-[60%] left-0 top-[15%] absolute">
@@ -40,6 +43,25 @@ const Section1 = () => {
               <Search color="gray" size={20} />
             </div>
           </div>
+        </div>
+
+        <div className="mt-4 flex gap-6">
+          <img
+            onClick={() => navigate(`/restaurants/food`)}
+            width={300}
+            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/23/ec86a309-9b06-48e2-9adc-35753f06bc0a_Food3BU.png"
+            alt=""
+          />
+          <img
+            width={300}
+            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/23/b5c57bbf-df54-4dad-95d1-62e3a7a8424d_IM3BU.png"
+            alt=""
+          />
+          <img
+            width={300}
+            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/23/b6d9b7ab-91c7-4f72-9bf2-fcd4ceec3537_DO3BU.png"
+            alt=""
+          />
         </div>
       </div>
     </div>

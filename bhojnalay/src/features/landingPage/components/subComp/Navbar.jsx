@@ -2,9 +2,13 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="h-[16%] w-full flex px-[10%] items-center justify-between">
-      <div className="h-[40%]">
+    <div
+      onClick={() => console.log("logo ka dada")}
+      className="h-[16%] w-full flex px-[10%] items-center justify-between"
+    >
+      <div onClick={() => console.log("logo ka parent")} className="h-[40%]">
         <img
+          onClick={() => console.log("logo clicked")}
           className="h-full"
           src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/static-assets/images/swiggy_logo_white.png"
           alt=""

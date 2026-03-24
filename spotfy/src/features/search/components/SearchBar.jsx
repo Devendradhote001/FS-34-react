@@ -1,5 +1,5 @@
 import { Search } from "lucide-react";
-import React from "react";7s/useSearch";
+import React from "react";
 
 const SearchBar = () => {
   let { handleChange, searchSongs, setToggle, toggle } = useSearch();

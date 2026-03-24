@@ -15,7 +15,7 @@ const AppRoutes = () => {
       element: <FoodDeliveryLayout />,
       children: [
         {
-          path: ":name",
+          path: " :name",
           element: <MainSection />,
         },
       ],

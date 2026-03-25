@@ -1,4 +1,7 @@
 import axios from "axios";
+import { toast } from "react-toastify";
+import { dispatch } from "../app/store";
+import { setError } from "../features/errorSlice";
 
 export let axiosIntance = axios.create({
   baseURL: "https://dummyjson.com",
@@ -7,7 +10,11 @@ export let axiosIntance = axios.create({
 axiosIntance.interceptors.response.use(
   (response) => {
     console.log(response);
-    return response
+    toast.success("ok");
+    return response;
   },
-  (error) => {}
+  (error) => {
+    console.log(error);
+    dispatch(setError(error.message));
+  }
 );

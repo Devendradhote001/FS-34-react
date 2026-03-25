@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 
 import { axiosIntance } from "./config/axiosInstance";
 
@@ -11,10 +11,10 @@ const App = () => {
 
   let fetchData = async () => {
     try {
-      let res = await axiosIntance.get("/users");
+      let res = await axiosIntance.get("/use");
       console.log(res);
     } catch (error) {
-      console.log("error in api");
+      console.log("error in api", error);
     }
   };
 

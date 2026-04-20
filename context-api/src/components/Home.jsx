@@ -1,14 +1,17 @@
 import React, { useContext } from "react";
-import { MyStore } from "../MyContext";
+import { MyStore } from "../context/MyContext";
 
-const Home = () => {
-  let { naam, setNaam } = useContext(MyStore);
+const Home = ({ children }) => {
+  console.log("home rendering...");
+
+  useContext(MyStore);
+
   return (
     <div>
-      <h1>home - {naam}</h1>
-      <button onClick={() => setNaam("rahul")}>change name</button>
+      <h1>Home</h1>
+      {children}
     </div>
   );
 };
 
-export default Home;
+export default React.memo(Home);

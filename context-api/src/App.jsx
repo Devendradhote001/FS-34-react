@@ -1,14 +1,15 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import Home from "./components/Home";
-import { ContextProvider } from "./MyContext";
+import About from "./components/About";
 
 const App = () => {
+  console.log("app rendering..");
+
   return (
     <div>
       <h1>App</h1>
-      <ContextProvider>
-        <Home />
-      </ContextProvider>
+      <Home />
+      <About />
     </div>
   );
 };

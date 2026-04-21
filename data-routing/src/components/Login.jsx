@@ -20,7 +20,7 @@ const Login = ({ setToggle }) => {
       }
     );
 
-    dispatch(addUser(res.data.user))
+    dispatch(addUser(res.data.user));
 
     console.log(res);
     navigate("/home");
@@ -55,6 +55,7 @@ const Login = ({ setToggle }) => {
           Register here
         </span>
       </p>
+      <button onClick={() => navigate("/home")}>go to home</button>
     </div>
   );
 };
